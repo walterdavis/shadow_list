@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115011749) do
+ActiveRecord::Schema.define(version: 20150115195324) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "project_id"
@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20150115011749) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "project_id"
   end
 
   add_index "comments", ["asset_id"], name: "index_comments_on_asset_id"
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "projects", force: :cascade do |t|
