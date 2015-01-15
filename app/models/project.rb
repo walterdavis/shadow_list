@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   
   private
   def add_owner_to_assigned_users
-    self.users += [user]
+    self.users += [user] if( self.users && user )
   end
 
 end
